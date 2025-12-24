@@ -1,11 +1,12 @@
-# P2P Car Rental Marketplace
+P2P Car Rental Marketplace
+Peer to peer (P2P) asset sharing is a very economically efficient model in which idle assets are utilized to generate revenue. With the increase in costs for purchasing and maintaining a vehicle—including insurance and taxes—it is becoming increasingly burdensome on middle to lower-class families to use private vehicles. Most private vehicles remain unused for the majority of the day. This creates an idle asset that incurs losses for the owner.
 
-Peer to peer (P2P) asset sharing is a very economically efficient model in which idle assets are utilized to generate revenue. With the increase in costs for purchasing and maintaining a vehicle including insurance and taxes that are imposed on the vehicle it is becoming more and more burdensome on middle to lower class families to use private vehicles for personal use. Most private vehicles that are purchased remain unused. This creates an idle asset which keeps on incurring losses for the owner. This is where our program comes in to help both the vehicle owner and vehicle user who want to use vehicles for a short span of time without having to worry about all the legal procedures and fees that come along with owning a vehicle. Our program works as a Peer to Peer Car Rental Marketplace where car owners can list their vehicles for rent and people can rent listed vehicles. We particularly want to help tourists that come to visit a country or city that wish to rent a vehicle for travelling for a short period of time, likely 1 to 7 days.
+Our program acts as a Peer-to-Peer Car Rental Marketplace where car owners can list their vehicles for rent and users can rent them directly. We particularly aim to help tourists visiting a new city who wish to rent a vehicle for short-term travel (typically 1 to 7 days) without the legal hurdles of traditional rental agencies.
 
+🖥️ Dashboard UI Design
+1. Login/Register Screen
+Plaintext
 
-## Dashboard UI
-
-### Login/Register
 +============================================================+
 |                                                            |
 |          🚗  P2P VEHICLE RENTAL SYSTEM v1.0  🚗            |
@@ -22,8 +23,8 @@ Peer to peer (P2P) asset sharing is a very economically efficient model in which
 |                                                            |
 +============================================================+
 > Enter Option: _
-
-### Main Menu UI
+2. Main Menu
+Plaintext
 
 +============================================================+
 |  DASHBOARD  |  User: Solaiman (S254)                       |
@@ -45,38 +46,9 @@ Peer to peer (P2P) asset sharing is a very economically efficient model in which
 |  7. AGREEMENTS & ACTIONS  <-- [!] CHECK HERE               |
 +============================================================+
 > Enter Option (1-7): _
+3. Rent a Car (Search & Listings)
+Plaintext
 
-### View History
-+------------------------------------------------------------+
-|  DASHBOARD > View History (Select ID to Review)            |
-+------------------------------------------------------------+
-|  ID    | Role   | Vehicle      | Status    | Review Status |
-|  A090  | Renter | Honda Civic  | Completed | [!] PENDING   |
-|  A088  | Owner  | Audi Q5      | Completed | DONE          |
-+------------------------------------------------------------+
-> Enter Agreement ID to Review (or 'B' to Back): _
-
-### Listing Vehicle
-+============================================================+
-|  DASHBOARD > LIST A NEW VEHICLE                            |
-+============================================================+
-|  Please enter the details of the car you want to list.     |
-+------------------------------------------------------------+
-|                                                            |
-|  Make (e.g., Toyota):  Toyota_                             |
-|  Model (e.g., Camry):  Corolla_                            |
-|  Year:                 2022_                               |
-|  Location:             Downtown_                           |
-|                                                            |
-|  Daily Rental Rate ($): 45.00_                             |
-|                                                            |
-+------------------------------------------------------------+
-|  [1] CONFIRM LISTING                                       |
-|  [2] CANCEL                                                |
-+============================================================+
-> Enter Option: _
-
-### Renting Vehicle
 +============================================================+
 |  DASHBOARD > RENT A CAR                                    |
 +============================================================+
@@ -96,13 +68,12 @@ Peer to peer (P2P) asset sharing is a very economically efficient model in which
 |  [3] SELECT VEHICLE ID TO BOOK                             |
 |  [4] RETURN TO DASHBOARD                                   |
 +============================================================+
-> Enter Option: _
+4. Booking Request (Renter Confirmation)
+Plaintext
 
-### Booking
-
-+----------------------------------------------------------------+
-|  DASHBOARD > RENT A CAR > BOOKING REQUEST: Tesla Model 3 (V019)|
-+----------------------------------------------------------------+
++------------------------------------------------------------+
+|  DASHBOARD > RENT A CAR > BOOKING REQUEST: Tesla (V019)    |
++------------------------------------------------------------+
 |  Enter Start Date (DD MM YYYY): 10 01 2026                 |
 |  Enter End Date   (DD MM YYYY): 12 01 2026                 |
 +------------------------------------------------------------+
@@ -112,26 +83,11 @@ Peer to peer (P2P) asset sharing is a very economically efficient model in which
 |  NOTICE: Upon confirmation, funds will be held.            |
 |  The Owner must approve this request within 24 hours.      |
 +------------------------------------------------------------+
-
-### Wallet
-
-+============================================================+
-|  DASHBOARD > Wallet                                        |
-+============================================================+
-|  DATE       | TYPE        | DETAILS             | AMOUNT   |
-+-------------+-------------+---------------------+----------+
-|  12/12/2025 | Deposit     | Wallet Fund         | +$500.00 |
-|  14/12/2025 | Payout      | Rental A105 (Net)   | +$120.00 |
-|  15/12/2025 | Payment     | Booking B201        | -$150.00 |
-|  16/12/2025 | Withdrawal  | Bank Transfer       | -$100.00 |
+|  [1] AGREE & SEND REQUEST (Pay $180.00 Now)                |
+|  [2] CANCEL                                                |
 +------------------------------------------------------------+
-|  [1] Add Balance                                           |
-|  [2] Withdraw Balance                                      |
-|  [3] EXPORT TO FILE                                        |
-|  [4] RETURN TO DASHBOARD                                   |
-+============================================================+
-
-### Agreements & Actions
+5. Agreements & Actions (Request/Approval Flow)
+Plaintext
 
 +============================================================+
 |  DASHBOARD > AGREEMENTS & ACTIONS                          |
@@ -159,8 +115,65 @@ Peer to peer (P2P) asset sharing is a very economically efficient model in which
 +------------------------------------------------------------+
 |  [4] RETURN TO DASHBOARD                                   |
 +============================================================+
-> Enter Option (3-4) or Action Command (ACC R1, REJ R1): _
+6. Wallet & Transaction History
+Plaintext
 
-|  [1] AGREE & SEND REQUEST (Pay $180.00 Now)                |
-|  [2] CANCEL                                                |
++============================================================+
+|  DASHBOARD > Wallet                                        |
++============================================================+
+|  DATE       | TYPE        | DETAILS             | AMOUNT   |
++-------------+-------------+---------------------+----------+
+|  12/12/2025 | Deposit     | Wallet Fund         | +$500.00 |
+|  14/12/2025 | Payout      | Rental A105 (Net)   | +$120.00 |
+|  15/12/2025 | Payment     | Booking B201        | -$150.00 |
+|  16/12/2025 | Withdrawal  | Bank Transfer       | -$100.00 |
 +------------------------------------------------------------+
+|  [1] Add Balance                                           |
+|  [2] Withdraw Balance                                      |
+|  [3] EXPORT TO FILE                                        |
+|  [4] RETURN TO DASHBOARD                                   |
++============================================================+
+👥 Team Allocation & Responsibilities
+Solaiman: System Integrator & User Lead
+Classes: User
+
+Responsibilities:
+
+Implement User authentication and Wallet management logic.
+
+Handle the high-level logic for Listing and Renting.
+
+Lead the final system integration and main.cpp flow.
+
+Shanto: Asset & Search Specialist
+Classes: Vehicle
+
+Responsibilities:
+
+Implement Vehicle object properties and states.
+
+Create the availability search algorithm and filtering logic.
+
+Handle the display of listed vehicles in the UI.
+
+Turjo: Transaction & Financial Officer
+Classes: RentalAgreement, CustomDate
+
+Responsibilities:
+
+Implement the Rental Agreement state machine (Request -> Active -> Complete).
+
+Handle date calculations, rental timers, and constraints.
+
+Manage financial records and payout logic.
+
+Ilham: UI/UX & Persistence Engineer
+Classes: DataStore, ConsoleUI
+
+Responsibilities:
+
+Implement the DataStore for file saving/fetching (Persistence).
+
+Build the ConsoleUI structure based on ASCII designs.
+
+Handle input validation and edge-case testing.
