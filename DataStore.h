@@ -283,7 +283,13 @@ public:
     string registerUser(const string& uname, const string& fullName, const string& pass,
                         const string& license, const string& idType, const string& idNum) {
         if (findUserByUsername(uname)) return "";
+        // Prevent two accounts sharing the same NID / Passport number
+        
+        if (!idNum.empty())
+            for (auto& u : users)
+                if (!u.getIdNumber().empty() && u.getIdNumber() == idNum) return "ERR_ID";
         string id = nextId("U");
+
         users.emplace_back(id, uname, fullName, pass, license, idType, idNum);
         save();
         return id;
