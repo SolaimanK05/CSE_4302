@@ -1,72 +1,38 @@
 #pragma once
 #include <string>
-#include <sstream>
-#include <iomanip>
-#include <ctime>
-#include <algorithm>
 
-using namespace std;
-
+// Represents a calendar date (day/month/year).
+// Valid range: 2024-01-01 to 2035-12-31.
 class Date {
 private:
-    int day, month, year;
+    int day;
+    int month;
+    int year;
 
-    int toJulian() const {
-        //boost c++ julian day formula
-        int a = (14 - month) / 12;
-        int y = year + 4800 - a;
-        int m = month + 12 * a - 3;
-        return day + (153*m+2)/5 + 365*y + y/4 - y/100 + y/400 - 32045;
-    }
+    // Converts date to a Julian day number for arithmetic.
+    int toJulian() const;
 
 public:
-    Date() : day(1), month(1), year(2026) {}
-    Date(int d, int m, int y) : day(d), month(m), year(y) {}
+    Date();
+    Date(int d, int m, int y);
 
-    static Date today() {
-        time_t t = time(nullptr);
-        tm* lt = localtime(&t);
-        return Date(lt->tm_mday, lt->tm_mon + 1, lt->tm_year + 1900);
-    }
+    // Returns today's date using the system clock.
+    static Date today();
 
-    bool isValid() const {
-        if (month < 1 || month > 12 || year < 2024 || year > 2035) return false;
-        int dim[] = {31,28,31,30,31,30,31,31,30,31,30,31};
-        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) dim[1] = 29;
-        return day >= 1 && day <= dim[month - 1];
-    }
+    bool isValid() const;
 
-    int daysBetween(const Date& o) const { 
-        return o.toJulian() - toJulian(); 
-    }
+    // Returns the number of days from this date to other (can be negative).
+    int daysBetween(const Date& other) const;
 
-    bool operator<(const Date& o)  const { 
-        return toJulian() <  o.toJulian(); 
-    }
-    bool operator<=(const Date& o) const { 
-        return toJulian() <= o.toJulian(); 
-    }
-    bool operator>=(const Date& o) const { 
-        return toJulian() >= o.toJulian(); 
-    }
-    bool operator==(const Date& o) const { 
-        return toJulian() == o.toJulian(); 
-    }
+    bool operator<(const Date& other)  const;
+    bool operator<=(const Date& other) const;
+    bool operator>=(const Date& other) const;
+    bool operator==(const Date& other) const;
 
-    string toString() const {
-        ostringstream ss;
-        ss << setfill('0') << setw(2) << day << "/"
-           << setw(2) << month << "/" << year;
-        return ss.str();
-    }
+    // Returns "DD/MM/YYYY" string.
+    std::string toString() const;
 
-    int getDay()   const { 
-        return day;   
-    }
-    int getMonth() const { 
-        return month; 
-    }
-    int getYear()  const { 
-        return year;  
-    }
+    int getDay()   const;
+    int getMonth() const;
+    int getYear()  const;
 };
