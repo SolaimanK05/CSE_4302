@@ -104,7 +104,7 @@ private:
         int x, int y,
         const char* text,
         Color col = {0, 0, 0, 0},
-        int fontSize = 13
+        int fontSize = 16
     );
     void drawTableHeader(
         int y,

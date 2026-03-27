@@ -90,10 +90,10 @@ void User::setPassword(const string& v) {
     password = v; 
 }
 void User::setBalance(double v){ 
-    balance  = v;
+    balance = v;
 }
 void User::setRating(float v) { 
-    rating   = v; 
+    rating  = v; 
 }
 void User::setRatingCount(int v) { 
     ratingCount = v; 

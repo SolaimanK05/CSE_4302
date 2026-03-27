@@ -9,24 +9,22 @@ using namespace std;
 // ─── Theme ────────────────────────────────────────────────────────────────────
 
 Theme::Theme()
-    // Slate-blue light theme — background layers (cool off-whites)
-    : BG      ({241, 245, 249, 255})   // slate-100
-    , PANEL   ({255, 255, 255, 255})   // pure white
-    , HEADER  ({226, 232, 240, 255})   // slate-200
-    , TOPBAR  ({255, 255, 255, 255})   // white topbar
-    , INPUT   ({248, 250, 252, 255})   // slate-50
-    , ROW_ALT ({241, 245, 249, 255})   // slate-100
-
+    : BG      ({13,  27,  42, 255})  
+    , PANEL   ({255, 255, 255, 255})   
+    , HEADER  ({20, 184, 166, 255})  
+    , TOPBAR  ({255, 255, 255, 255})   
+    , INPUT   ({248, 250, 252, 255})  
+    , ROW_ALT ({241, 245, 249, 255})  
     // Accent palette
-    , ACCENT  ({ 59, 130, 246, 255})   // blue-500
-    , SUCCESS ({ 16, 185, 129, 255})   // emerald-500
-    , WARNING ({245, 158,  11, 255})   // amber-500
-    , DANGER  ({239,  68,  68, 255})   // red-500
+    , ACCENT  ({ 10, 112,  96, 255})  
+    , SUCCESS ({ 16, 185, 129, 255}) 
+    , WARNING ({245, 171,  53, 255}) 
+    , DANGER  ({ 220,  58,  58, 255})   
 
     // Text — dark navy for sharp contrast on white
-    , TEXT    ({ 15,  23,  42, 255})   // slate-900
-    , SUBTEXT ({100, 116, 139, 255})   // slate-500
-    , BORDER  ({203, 213, 225, 255})   // slate-300
+    , TEXT    ({ 15,  23,  42, 255})   
+    , SUBTEXT ({100, 116, 139, 255})   
+    , BORDER  ({203, 213, 225, 255})  
 {}
 
 // ─── Layout helpers ───────────────────────────────────────────────────────────
@@ -497,7 +495,7 @@ void App::drawRegister() {
         cx - MeasureText("Create Account", 24) / 2,
         cy - 285, 24, theme.ACCENT);
 
-    drawPanel(cx - 220, cy - 255, 440, 510, nullptr);
+    drawPanel(cx - 220, cy - 255, 440, 540, nullptr);
     int y = cy - 232;
 
     drawLabel(cx - 200, y, "USERNAME", theme.SUBTEXT);          y += 16;
@@ -514,7 +512,7 @@ void App::drawRegister() {
     drawInput(4, cx - 200, y, 280, 40,
               regIdNID ? "Enter NID number" : "Enter passport number");
     if (drawSmallBtn(cx + 92, y, 108, 40,
-                     regIdNID ? "Switch: Passport" : "Switch: NID",
+                     regIdNID ? "Passport" : "NID",
                      theme.SUBTEXT))
         regIdNID = !regIdNID;
     y += 54;
@@ -749,7 +747,7 @@ void App::drawBooking() {
 void App::drawListCar() {
     drawTopBar(); drawSidebarNav();
     int y = TOP_H + 12;
-    drawPanel(contentX(), y, contentW(), 490, "List Your Vehicle");
+    drawPanel(contentX(), y, contentW(), 600, "List Your Vehicle");
 
     int lx = contentX() + 14;
     drawVehicleTypeSelector(lx, y + 56);

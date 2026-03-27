@@ -1,44 +1,33 @@
 #pragma once
 #include <string>
-using namespace std;
 
+// Abstract base class for all people in the system.
+// Stores identity and driving-licence information.
 class Person {
-protected:
-    string name;
-    string licenseNumber;
-    string idType; 
-    string idNumber;
+private:
+    std::string name;
+    std::string licenseNumber;
+    std::string idType;
+    std::string idNumber;
 
 public:
-    Person(const string& name = "", const string& license="", const string& idType="", const string& idNumber="")
-    : name(name), licenseNumber(license), idType(idType), idNumber(idNumber) {}
+    Person(
+        const std::string& name = "",
+        const std::string& license = "",
+        const std::string& idType = "",
+        const std::string& idNumber = ""
+    );
 
-    virtual ~Person(){}
-    virtual string getRole() const = 0;
+    virtual ~Person() {}
+    virtual std::string getRole() const = 0;
 
-    const string& getName() const { 
-        return name;          
-    }
-    const string& getLicenseNumber() const { 
-        return licenseNumber; 
-    }
-    const string& getIdType() const { 
-        return idType;        
-    }
-    const string& getIdNumber() const { 
-        return idNumber;      
-    }
+    const std::string& getName() const;
+    const std::string& getLicenseNumber() const;
+    const std::string& getIdType() const;
+    const std::string& getIdNumber() const;
 
-    void setName(const string& v) { 
-        name = v;          
-    }
-    void setLicenseNumber(const string& v) { 
-        licenseNumber = v; 
-    }
-    void setIdType(const string& v) { 
-        idType = v;        
-    }
-    void setIdNumber(const string& v) { 
-        idNumber = v;
-    }
+    void setName(const std::string& v);
+    void setLicenseNumber(const std::string& v);
+    void setIdType(const std::string& v);
+    void setIdNumber(const std::string& v);
 };

@@ -25,9 +25,9 @@ private:
     std::string id;
     std::string username;
     std::string password;
-    double      balance;
-    float       rating;
-    int         ratingCount;
+    double balance;
+    float rating;
+    int ratingCount;
     std::vector<Transaction> transactions;
 
 public:
@@ -38,7 +38,7 @@ public:
         const std::string& name,
         const std::string& password,
         const std::string& license  = "",
-        const std::string& idType   = "NID",
+        const std::string& idType = "NID",
         const std::string& idNumber = ""
     );
 
