@@ -185,13 +185,10 @@ void DataStore::saveTransactions() const {
     f << fixed << setprecision(2);
     for (auto& u : users) {
         for (auto& tx : u.getTransactions()) {
-            f << u.getId()             << "|"
-              << tx.date.getDay()      << "|"
-              << tx.date.getMonth()    << "|"
-              << tx.date.getYear()     << "|"
-              << tx.type              << "|"
-              << tx.details           << "|"
-              << tx.amount            << "\n";
+            f << tx.getDate().getDay() << "|"
+            << tx.getType() << "|"
+            << tx.getDetails() << "|"
+            << tx.getAmount() << "\n";
         }
     }
 }
@@ -200,10 +197,10 @@ void DataStore::saveVehicles() const {
     ofstream f(DIR + "vehicles.txt");
     f << fixed << setprecision(2);
     for (auto v : vehicles) {
-        f << v->getId()              << "|" << v->getOwnerId()    << "|"
-          << v->getMake()            << "|" << v->getModel()      << "|"
-          << v->getYear()            << "|" << v->getLocation()   << "|"
-          << v->getDailyRate()       << "|"
+        f << v->getId() << "|" << v->getOwnerId()    << "|"
+          << v->getMake() << "|" << v->getModel()      << "|"
+          << v->getYear() << "|" << v->getLocation()   << "|"
+          << v->getDailyRate() << "|"
           << (v->isListed() ? "1" : "0") << "|"
           << v->getRegistrationNum() << "|" << v->getVehicleType()<< "\n";
     }

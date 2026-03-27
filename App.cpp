@@ -441,7 +441,7 @@ bool App::tryDeposit() {
 
 bool App::tryWithdraw() {
     double amount = 0;
-    try { amount = stod(inputs[0]); }
+    try { amount = stod(inputs[1]); }
     catch (...) { showNotif("Enter a valid amount.", true); return false; }
 
     User* u = store.findUserById(userId);
@@ -747,7 +747,7 @@ void App::drawBooking() {
 void App::drawListCar() {
     drawTopBar(); drawSidebarNav();
     int y = TOP_H + 12;
-    drawPanel(contentX(), y, contentW(), 600, "List Your Vehicle");
+    drawPanel(contentX(), y, contentW(), 700, "List Your Vehicle");
 
     int lx = contentX() + 14;
     drawVehicleTypeSelector(lx, y + 56);
@@ -1072,12 +1072,12 @@ void App::drawWallet() {
         auto& tx = txs[txs.size() - 1 - i];
         int ry = y + 90 + i * 46;
         drawTableRow(ry, 46, i % 2 == 0);
-        DrawText(tx.date.toString().c_str(), c1, ry+14, 14, theme.SUBTEXT);
-        DrawText(tx.type.c_str(),            c2, ry+14, 14, theme.TEXT);
-        DrawText(tx.details.c_str(),         c3, ry+14, 14, theme.TEXT);
-        Color  ac   = tx.amount >= 0 ? theme.SUCCESS : theme.DANGER;
-        string sign = tx.amount >= 0 ? "+" : "";
-        DrawText((sign + fmtMoney(abs(tx.amount))).c_str(),
+        DrawText(tx.getDate().toString().c_str(), c1, ry+14, 14, theme.SUBTEXT);
+        DrawText(tx.getType().c_str(),c2, ry+14, 14, theme.TEXT);
+        DrawText(tx.getDetails().c_str(),c3, ry+14, 14, theme.TEXT);
+        Color  ac   = tx.getAmount() >= 0 ? theme.SUCCESS : theme.DANGER;
+        string sign = tx.getAmount() >= 0 ? "+" : "";
+        DrawText((sign + fmtMoney(abs(tx.getAmount()))).c_str(),
                  c4, ry + 14, 14, ac);
     }
     if (txs.empty())

@@ -5,18 +5,29 @@
 #include <vector>
 
 // A single financial event tied to a user account.
-struct Transaction {
+class Transaction {
+private:
     Date        date;
     std::string type;
     std::string details;
     double      amount;
 
-    Transaction(
-        Date d,
-        const std::string& type,
-        const std::string& details,
-        double amount
-    );
+public:
+    Transaction(Date d, const std::string& type,
+                const std::string& details, double amount);
+
+    const Date& getDate() const { 
+        return date;    
+    }
+    const std::string& getType() const { 
+        return type;
+    }
+    const std::string& getDetails() const { 
+        return details; 
+    }
+    double getAmount() const { 
+        return amount; 
+    }
 };
 
 // Registered member who can both list and rent vehicles.
