@@ -1,0 +1,9 @@
+[DataStore] Bad numeric field in user U2: stod
+[DataStore] Skipping malformed user line: GARBAGE_LINE_NO_DELIMITERS
+[DataStore] Skipping malformed user line: U3|missingfields|pass|Only Four Fields
+[DataStore] Bad transaction for user U1: stoi
+[DataStore] Skipping malformed transaction line: TOOFEW|FIELDS
+[DataStore] Bad year for vehicle V2: stoi — defaulting to 2024
+[DataStore] Skipping malformed vehicle line: TOOSHORT|LINE
+[DataStore] Skipping malformed agreement line: TOOFEW|FIELDS|HERE
+[DataStore] Bad agreement data: stod

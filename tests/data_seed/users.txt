@@ -1,0 +1,3 @@
+U1|alice|password123|Alice Rahman|500.00|4.5|2|DL-1001|NID|1234567890
+U2|bob|qwerty|Bob Hossain|150.00|3.0|1|DL-2002|NID|9876543210
+U3|carol|carol99|Carol Mim|0.00|0.0|0|DL-3003|Passport|AB1234567

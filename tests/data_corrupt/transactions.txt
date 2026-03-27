@@ -1,0 +1,3 @@
+U1|1|1|2026|Deposit|Wallet Deposit|100.00
+U1|BAD|DATE|HERE|Deposit|Bad Date Tx|50.00
+TOOFEW|FIELDS

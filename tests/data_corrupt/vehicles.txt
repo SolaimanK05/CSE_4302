@@ -1,0 +1,4 @@
+V1|U1|Toyota|Corolla|2022|Dhaka|55.00|1|DHK-1234|4-Seater
+V2|U1|Honda|Bike|NOT_A_YEAR|Mirpur|20.00|1|DHK-5678|Motorcycle
+TOOSHORT|LINE
+V3|U4|Hyundai|Tucson|2023|Gulshan|80.00|1|DHK-9999|6-Seater

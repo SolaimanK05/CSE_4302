@@ -1,0 +1,4 @@
+U1|gooduser|pass123|Good User|100.00|4.00|1|DL-1111|NID|1112223330
+U2|badbalance|pass|Bad Balance User|0.00|0.00|0|DL-2222|NID|2223334440
+U4|anotheruser|pass456|Another User|200.00|3.50|2|DL-4444|NID|4445556660
+U5|a|a|a|0.00|0.00|0|1|NID|1

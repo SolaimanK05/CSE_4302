@@ -1,0 +1,6 @@
+U1|1|1|2026|Deposit|Wallet Deposit|500.00
+U2|1|1|2026|Deposit|Wallet Deposit|300.00
+U2|15|3|2026|Payment|Booking A1|-275.00
+U3|1|1|2026|Deposit|Wallet Deposit|400.00
+U3|1|2|2026|Payment|Booking A2|-320.00
+U2|5|2|2026|Payout|Rental A2|288.00

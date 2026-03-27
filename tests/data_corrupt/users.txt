@@ -1,0 +1,5 @@
+U1|gooduser|pass123|Good User|100.00|4.0|1|DL-1111|NID|1112223330
+U2|badbalance|pass|Bad Balance User|NOT_A_NUMBER|4.0|1|DL-2222|NID|2223334440
+GARBAGE_LINE_NO_DELIMITERS
+U3|missingfields|pass|Only Four Fields
+U4|anotheruser|pass456|Another User|200.00|3.5|2|DL-4444|NID|4445556660
