@@ -447,17 +447,130 @@ ratingForOwner | ratingForRenter
 
 ## 6. Build Instructions
 
-Requires [raylib](https://www.raylib.com) installed under
-`C:/msys64/ucrt64` (MSYS2/UCRT64 on Windows).
+The project requires a C++17 compiler, `make`, and
+[raylib](https://www.raylib.com). Setup differs by platform.
+
+---
+
+### Windows
+
+The Makefile is written for Windows and expects raylib installed via MSYS2
+under `C:\msys64`. Follow these steps exactly.
+
+**Step 1 — Install MSYS2**
+
+Download the installer from [msys2.org](https://www.msys2.org) and run it.
+Install to the default path `C:\msys64` — do not change it, the Makefile
+hardcodes that location.
+
+**Step 2 — Open the UCRT64 terminal**
+
+After installation, open **MSYS2 UCRT64** from the Start Menu. This is
+important — there are several MSYS2 terminals and they are not interchangeable.
+The one you want is labelled **UCRT64**.
+
+**Step 3 — Install the compiler, raylib, and make**
+
+Run this single command in the UCRT64 terminal:
 
 ```bash
-make        # produces CarRental.exe
-make run    # build and launch immediately
+pacman -S mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-raylib make
+```
+
+Type `Y` and press Enter when prompted to confirm. This installs everything
+the Makefile needs into `C:\msys64\ucrt64\` automatically.
+
+**Step 4 — Navigate to the project folder**
+
+```bash
+cd /c/Users/YourName/path/to/project
+```
+
+**Step 5 — Build and run**
+
+```bash
+make run
+```
+
+This compiles all source files and launches `CarRental.exe` immediately. On
+subsequent runs `make run` only recompiles files that changed.
+
+---
+
+### macOS
+
+The included Makefile targets Windows, so macOS requires a small adjustment
+before building.
+
+**Step 1 — Install Homebrew**
+
+If you do not have Homebrew installed, open Terminal and run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**Step 2 — Install raylib and make**
+
+```bash
+brew install raylib make
+```
+
+The C++ compiler (`clang++`) ships with macOS via Xcode Command Line Tools.
+If it is not already installed, running any `make` command will prompt you to
+install it automatically.
+
+**Step 3 — Create a macOS Makefile**
+
+Replace the contents of `Makefile` with the following:
+
+```makefile
+CXX      := g++
+CXXFLAGS := -std=c++17 -O2 -Wall $(shell pkg-config --cflags raylib)
+LDFLAGS  := $(shell pkg-config --libs raylib) -framework OpenGL \
+            -framework Cocoa -framework IOKit -framework CoreVideo
+TARGET   := CarRental
+
+SRC := main.cpp        \
+       Date.cpp        \
+       Person.cpp      \
+       User.cpp        \
+       VehicleBase.cpp \
+       RentalAgreement.cpp \
+       DataStore.cpp \
+       App.cpp
+
+.PHONY: all clean run
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+run: all
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
+```
+
+**Step 4 — Build and run**
+
+```bash
+make run
+```
+
+---
+
+### Build commands (both platforms)
+
+```bash
+make        # compile only
+make run    # compile and launch
 make clean  # remove the executable
 ```
 
-On Linux/macOS, update the `RAYLIB_PATH` and library flags in `Makefile` to
-match your local raylib installation.
+---
 
 **First run:** If `data/` does not exist, `DataStore::load()` creates it via
 `std::filesystem::create_directory`. The app starts with no users and no
@@ -466,10 +579,10 @@ vehicles.
 **Seeding test data:**
 
 ```bash
-# Windows
-xcopy tests\data_seed\* data\ /Y
+# Windows (UCRT64 terminal)
+cp -r tests/data_seed/. data/
 
-# Linux / macOS
+# macOS / Linux
 cp -r tests/data_seed/. data/
 ```
 
