@@ -666,7 +666,7 @@ void App::drawBooking() {
 
     User* owner = store.findUserById(v->getOwnerId());
     int y = TOP_H + 12;
-    drawPanel(contentX(), y, contentW(), 520,
+    drawPanel(contentX(), y, contentW(), 580,
               ("Booking: " + v->getDisplayName()).c_str());
 
     int lx = contentX() + 14, ly = y + 58;
